@@ -56,6 +56,17 @@ struct pkt ack_pkt_from_B; //ack to be sent from B to A
 int A_SEQ; //state A
 int B_ACK; //state B
 
+bool ACK_received; //when ack hasnt reached sender but trying to send new data from sender's application layer
+
+int A_ackReceived_count;
+int A_dropped_count;
+int A_corruptReceived_count;
+int A_timeoutOccurred_count;
+int A_nackReceived_count;
+int B_correctlyReceived_count;
+int B_corruptReceived_count;
+int B_duplicateReceived_count;
+
 int calc_CheckSum (struct pkt packet)
 {
   //printf(" in calc_CheckSum\n");
@@ -65,28 +76,28 @@ int calc_CheckSum (struct pkt packet)
   unsigned char byte;
 
   //printf("\n\n\tsizeof pkt seqnum : %ld, size of pkt acknum : %ld\n\n",sizeof(packet.seqnum), sizeof(packet.acknum) );
-  for (i = 0; i < sizeof(packet.seqnum); i++) 
+  for (i = 0; i < sizeof(packet.seqnum); i++)
   {
       byte = *((unsigned char *)&packet.seqnum + i);
       checksum += byte;
       //printf("byte is %d\n", byte );
-      //printf("check is %d\n", checksum );      
+      //printf("check is %d\n", checksum );
   }
 
-  for (i = 0; i < sizeof(packet.acknum); i++) 
+  for (i = 0; i < sizeof(packet.acknum); i++)
   {
       byte = *((unsigned char *)&packet.acknum + i);
       checksum += byte;
       //printf("byte is %d\n", byte );
-      //printf("check is %d\n", checksum );  
+      //printf("check is %d\n", checksum );
   }
 
-  for (i = 0; i < sizeof(packet.payload); i++) 
+  for (i = 0; i < sizeof(packet.payload); i++)
   {
       byte = *((unsigned char *)&packet.payload + i);
       checksum += byte;
       //printf("byte is %d\n", byte );
-      //printf("check is %d\n", checksum );  
+      //printf("check is %d\n", checksum );
   }
 
   return checksum;
@@ -96,47 +107,55 @@ int calc_CheckSum (struct pkt packet)
 /* called from layer 5, passed the data to be sent to other side */
 void A_output(struct msg message)
 {
+  if(ACK_received)
+    {
 
-  /*printf("\n\n");
-  printf("in A_output\n");  
-  
-  printf("(Sender) (in A_output) state is %d\n", A_SEQ);
-  printf("(Sender) (in A_output) msg from upper layer is : %s \n", message.data);
-  */
-  //generate packet and start timer
-  memset(&packet_from_A, 0, sizeof(packet_from_A));
+    /*printf("\n\n");
+    printf("in A_output\n");
 
-  // if we are in state 0, seqnum is 0, else it is 1
-  packet_from_A.seqnum  = (A_SEQ == 0)? 0 : 1;
-  
-  memcpy(&packet_from_A.payload, message.data, 20);
+    printf("(Sender) (in A_output) state is %d\n", A_SEQ);
+    printf("(Sender) (in A_output) msg from upper layer is : %s \n", message.data);
+    */
+    //generate packet and start timer
+    memset(&packet_from_A, 0, sizeof(packet_from_A));
 
-  packet_from_A.checksum = calc_CheckSum(packet_from_A);
-  
-  //printf("(Sender) (in A_output) Message in newly created packet : %s \n", packet_from_A.payload);
-  
-  tolayer3(0, packet_from_A); //tolayer3(from which entity, struct pkt)
-  starttimer(0, TIMEOUT);
+    // if we are in state 0, seqnum is 0, else it is 1
+    packet_from_A.seqnum  = (A_SEQ == 0)? 0 : 1;
 
-  printf("**** At %f in A_output() : Sending pkt%d %s ****\n",time, packet_from_A.seqnum,packet_from_A.payload );
+    memcpy(&packet_from_A.payload, message.data, 20);
 
-  //printf("(Sender) (in A_output) Packet %d sent.\n", packet_from_A.seqnum);
-  
-  //as packet is sent, go to next state in sequence.
-  //printf("\n(Sender) (in A_output) seqnum :%d,  prev state :%d \n",packet_from_A.seqnum, A_SEQ);
-  
-  A_SEQ = (A_SEQ == 0)? 1: 3;
-  //printf("(Sender) (in A_output) Now going to state %d\n", A_SEQ);
-  
-  //printf("(Sender) (in A_output) seqnum :%d, state :%d \n\n",packet_from_A.seqnum, A_SEQ);  
-  return;
+    packet_from_A.checksum = calc_CheckSum(packet_from_A);
 
+    //printf("(Sender) (in A_output) Message in newly created packet : %s \n", packet_from_A.payload);
+
+    tolayer3(0, packet_from_A); //tolayer3(from which entity, struct pkt)
+    starttimer(0, TIMEOUT);
+
+    printf("**** At %f in A_output() : Sending pkt%d: %s ****\n",time, packet_from_A.seqnum,packet_from_A.payload );
+    ACK_received = false;
+    //printf("(Sender) (in A_output) Packet %d sent.\n", packet_from_A.seqnum);
+
+    //as packet is sent, go to next state in sequence.
+    //printf("\n(Sender) (in A_output) seqnum :%d,  prev state :%d \n",packet_from_A.seqnum, A_SEQ);
+
+    A_SEQ = (A_SEQ == 0)? 1: 3;
+    //printf("(Sender) (in A_output) Now going to state %d\n", A_SEQ);
+
+    //printf("(Sender) (in A_output) seqnum :%d, state :%d \n\n",packet_from_A.seqnum, A_SEQ);
+    return;
+
+    }
+    else
+    {
+      printf("Packet dropped. Msg in transit\n");
+      A_dropped_count++;
+    }
 }
 
 /* need be completed only for extra credit */
 void B_output(struct msg message)
 {
-  printf("in B_output\n"); 
+  printf("in B_output\n");
 }
 
 /* called from layer 3, when a packet arrives for layer 4 */
@@ -153,32 +172,35 @@ void A_input(struct pkt packet)
   // if checksum does not match return
   if (checksum != packet.checksum)
   {
-    //printf("  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt\n");
+    printf("  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt\n");
+    A_corruptReceived_count++;
     return;
   }
 
   // if we get the wrong ack, from the one we are expecting, return
   if ( (A_SEQ == 1 && packet.acknum != 0) || (A_SEQ == 3 && packet.acknum != 1) )
   {
-  //   printf("  (Sender) (in A_input) Wrong ACK %d received.\n", packet.acknum);
-
-    return;   
+     printf("  (Sender) (in A_input) NACK received.\n"); //previous ack if doubly recvd is nack
+     A_nackReceived_count++;
+     return;
   }
-  
+
   //we got the correct ACK, and it is not corrupt.
   //stop timer and change state
   //printf("  (Sender) (in A_input) Packet % d received successfully at Receiver\n", packet.acknum);
-  printf("**** At %f in A_input() : ACK received for pkt%d %s ****\n",time, packet.seqnum,packet.payload );
+  printf("**** At %f in A_input() : ACK received for pkt%d: %s ****\n",time, packet.seqnum,packet.payload );
+  ACK_received = true;
+  A_ackReceived_count++;
 
   stoptimer(0);
 
   //printf("\n  (Sender) (in A_input) seqnum :%d, ack : %d, prev state :%d \n",packet.seqnum, packet.acknum, A_SEQ);
-  
+
   A_SEQ = (A_SEQ == 1)? 2 : 0;
   //printf("  (Sender) (in A_input) Going to state %d\n", A_SEQ);
-  
+
   //printf("  (Sender) (in A_input) seqnum :%d, state :%d \n\n",packet.seqnum, A_SEQ);
-  
+
   return;
 }
 
@@ -186,10 +208,11 @@ void A_input(struct pkt packet)
 void A_timerinterrupt(void)
 {
  //just resend the packet previously sent, when timer goes off
-  //printf("(A_timerinterrupt) Resending .. %.*s \n", 20, packet_from_A.payload);
+  printf("(A_timerinterrupt) Resending .. %.*s \n", 20, packet_from_A.payload);
+  A_timeoutOccurred_count++;
 
   tolayer3(0, packet_from_A);
- 
+
   //start the timer again
   starttimer(0, TIMEOUT);
   return;
@@ -200,7 +223,7 @@ void A_timerinterrupt(void)
 void A_init(void)
 {
   //printf("in A_init\n");
-  A_SEQ = 0; 
+  A_SEQ = 0;
 }
 
 /* Note that with simplex transfer from a-to-B, there is no B_output() */
@@ -209,9 +232,9 @@ void A_init(void)
 void B_input(struct pkt packet)
 {
   /*printf("\n\n");
-  printf("in B_input\n"); 
-    
-  printf("(in B_input) State is : %d \n", B_ACK);  
+  printf("in B_input\n");
+
+  printf("(in B_input) State is : %d \n", B_ACK);
   printf("(in B_input) Msg from packet received is : %s \n", packet.payload);
   printf("(in B_input) Seqnum of received packet : %d\n", packet.seqnum);
 */
@@ -222,31 +245,13 @@ void B_input(struct pkt packet)
 */
   memset(&ack_pkt_from_B, 0, sizeof(ack_pkt_from_B));
 
-  // if we get the wrong packet from the one we are expecting, resend precious ACK
-
-  if ( (B_ACK == 0 && packet.seqnum != 0) || (B_ACK == 1 && packet.seqnum != 1) )
-  {
-    //printf("(in B_input) Received seqnum %d, expected seqnum %d. Does not match. \n", packet.seqnum, B_ACK);
-    
-    ack_pkt_from_B.acknum = (B_ACK == 0)? 1: 0; //B_ACK is current ack, since pkt is corrupted we send previous ack so reversing
-
-    ack_pkt_from_B.checksum = calc_CheckSum(ack_pkt_from_B);
-    printf("**** At %f in B_input() : Resending ACK for pkt%d %s ****\n",time, packet.seqnum,packet.payload );
-
-   /* printf("(in B_input) Resending ACK %d\n", ack_pkt_from_B.acknum);
-    printf("Sending ack packet to layer3 of sender bcz of wrong recv pkt\n");
-   */ 
-    tolayer3(1, ack_pkt_from_B);  
-
-    return;  
-  }
-
   // if checksum does not match resend the previous ACK
   if (checksum != packet.checksum)
   {
-    /*printf("(in B_input) Checksum does not match. Received packet is corrupt \n");
-    printf("Received packet's checksum %d | expected checksum %d\n", packet.checksum, checksum);
-*/
+    printf("(in B_input) Checksum does not match. Received packet is corrupt \n");
+    B_corruptReceived_count++;
+    //printf("Received packet's checksum %d | expected checksum %d\n", packet.checksum, checksum);
+
     ack_pkt_from_B.acknum = (B_ACK == 0)? 1: 0; //B_ACK is current ack, since pkt's checksum doesnt match we send previous ack so reversing
 
 
@@ -254,15 +259,36 @@ void B_input(struct pkt packet)
     /*printf("(in B_input) Resending ACK %d\n", ack_pkt_from_B.acknum);
     printf("Sending ack packet to layer3 of sender bcz of wrong checksum\n");
     */
-    tolayer3(1, ack_pkt_from_B);  
+    tolayer3(1, ack_pkt_from_B);
 
-    return;  
+    return;
 
   }
 
+  // if we get the wrong packet from the one we are expecting, resend precious ACK
+
+  if ( (B_ACK == 0 && packet.seqnum != 0) || (B_ACK == 1 && packet.seqnum != 1) )
+  {
+    //printf("(in B_input) Received seqnum %d, expected seqnum %d. Does not match. \n", packet.seqnum, B_ACK);
+
+    ack_pkt_from_B.acknum = (B_ACK == 0)? 1: 0; //B_ACK is current ack, since pkt is corrupted we send previous ack so reversing
+
+    ack_pkt_from_B.checksum = calc_CheckSum(ack_pkt_from_B);
+    printf("**** At %f in B_input() :  Duplicate Packet received. Resending ACK for pkt%d %s ****\n",time, packet.seqnum,packet.payload );
+    B_duplicateReceived_count++;
+   /* printf("(in B_input) Resending ACK %d\n", ack_pkt_from_B.acknum);
+    printf("Sending ack packet to layer3 of sender bcz of wrong recv pkt\n");
+   */
+    tolayer3(1, ack_pkt_from_B);
+
+    return;
+  }
+
+
+
   // we got the correct packet, and it is not corrupt. generate ACK and send
   printf("**** At %f in B_input() : Correct pkt received. pkt%d %s ****\n",time, packet.seqnum,packet.payload );
-
+  B_correctlyReceived_count++;
 
   /*printf("(in B_input) Msg from packet received: %s \n", packet.payload);
   printf("(in B_input) Sequence number: %d \n", packet.seqnum);
@@ -272,18 +298,18 @@ void B_input(struct pkt packet)
   tolayer5(1, packet.payload);
 
   ack_pkt_from_B.acknum = (B_ACK == 0)? 0 : 1;
-  
+
   ack_pkt_from_B.checksum = calc_CheckSum(ack_pkt_from_B);
   //printf("(in B_input) Sending ACK %d to A\n", ack_pkt_from_B.acknum);
-  
+
   tolayer3(1, ack_pkt_from_B);
 
   //next ack will be...
   //printf("\n(in B_input) seqnum :%d, ack : %d, prev state :%d \n",packet.seqnum, packet.acknum, B_ACK);
-  
-  B_ACK =  (B_ACK == 0)? 1 : 0; 
+
+  B_ACK =  (B_ACK == 0)? 1 : 0;
   //printf("(in B_input) Going to state: %d\n", B_ACK);
-  
+
   //printf("(in B_input) seqnum :%d, state :%d \n\n",packet.seqnum, B_ACK);
 }
 
@@ -365,6 +391,7 @@ int main()
     init();
     A_init();
     B_init();
+    ACK_received = true;
 
     while (1)
     {
@@ -442,17 +469,36 @@ int main()
     }
 
 terminate:
-    printf("\n Simulator terminated at time %f\n after sending %d msgs from layer5\n",time, nsim);
+    printf("\n Simulator terminated at time %f\n after sending %d msgs from layer5\n\n",time, nsim);
+    printf("A_ackReceived_count = %d\n",A_ackReceived_count );
+    printf("A_dropped_count = %d\n", A_dropped_count );
+    printf("A_corruptReceived_count = %d\n", A_corruptReceived_count );
+    printf("A_timeoutOccurred_count = %d\n", A_timeoutOccurred_count );
+    printf("A_nackReceived_count = %d\n", A_nackReceived_count);
+    printf("B_correctlyReceived_count = %d\n", B_correctlyReceived_count);
+    printf("B_corruptReceived_count = %d\n", B_corruptReceived_count);
+    printf("B_duplicateReceived_count = %d\n", B_duplicateReceived_count);
+
 }
 
 void init() /* initialize the simulator */
 {
+
+    A_ackReceived_count = 0;
+    A_dropped_count = 0;
+    A_corruptReceived_count = 0;
+    A_timeoutOccurred_count = 0;
+    A_nackReceived_count = 0;
+    B_correctlyReceived_count = 0;
+    B_corruptReceived_count = 0;
+    B_duplicateReceived_count = 0;
+
     int i;
     float sum, avg;
     float jimsrand();
 
     //nsimmax = 2; lossprob = 0.0; corruptprob =0.0; lambda=50; TRACE = 4;
-    nsimmax = 10; lossprob = 0.1; corruptprob =0.3; lambda=1000; TRACE = 4;
+    nsimmax = 20; lossprob = 0.2; corruptprob =0.3; lambda=1000; TRACE = 4;
     printf("-----  Alternating Bit Protocol -------- \n\n");
     printf("number of messages to simulate: %d\n",nsimmax);
     printf("packet loss probability : %f\n",lossprob);
