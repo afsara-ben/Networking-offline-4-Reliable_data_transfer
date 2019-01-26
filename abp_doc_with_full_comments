@@ -1,0 +1,1474 @@
+-----  Alternating Bit Protocol -------- 
+
+number of messages to simulate: 10
+packet loss probability : 0.100000
+packet corruption probability : 0.300000
+average time between messages from sender's layer5 : 1000.000000
+TRACE: 4
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 0.000000
+            INSERTEVENT: future time will be 1870.573975
+
+in A_init
+in B_init
+
+EVENT time: 1870.573975,  type: 1, fromlayer5  entity: 0
+
+		sending 1 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 1870.573975
+            INSERTEVENT: future time will be 3512.483887
+
+          MAINLOOP: data given to student: aaaaaaaaaaaaaaaaaaa
+
+
+in A_output
+(Sender) (in A_output) state is 0
+(Sender) (in A_output) msg from upper layer is : aaaaaaaaaaaaaaaaaaa 
+(Sender) (in A_output) Message in newly created packet : aaaaaaaaaaaaaaaaaaa 
+
+            TOLAYER3: seq: 0, ack 0, check: 1843 aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1870.573975
+            INSERTEVENT: future time will be 1876.039062
+
+            START TIMER: starting timer at 1870.573975
+
+            INSERTEVENT: time is 1870.573975
+            INSERTEVENT: future time will be 1890.573975
+
+(Sender) (in A_output) Packet 0 sent.
+(Sender) (in A_output) Now going to state 1
+
+EVENT time: 1876.039062,  type: 2, fromlayer3  entity: 1
+
+		sending 1 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : Zaaaaaaaaaaaaaaaaaa 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1836
+(in B_input) Received Checksum: 1843
+(in B_input) Checksum does not match. Received packet is corrupt 
+Received packet's checksum 1843 | expected checksum 1836
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong checksum
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1876.039062
+            INSERTEVENT: future time will be 1878.220703
+
+
+EVENT time: 1878.220703,  type: 2, fromlayer3  entity: 0
+
+		sending 1 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Wrong ACK 1 received.
+
+EVENT time: 1890.573975,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. aaaaaaaaaaaaaaaaaaa 
+
+            TOLAYER3: seq: 0, ack 0, check: 1843 aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1890.573975
+            INSERTEVENT: future time will be 1892.594482
+
+            START TIMER: starting timer at 1890.573975
+
+            INSERTEVENT: time is 1890.573975
+            INSERTEVENT: future time will be 1910.573975
+
+
+EVENT time: 1892.594482,  type: 2, fromlayer3  entity: 1
+
+		sending 1 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : aaaaaaaaaaaaaaaaaaa 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1843
+(in B_input) Received Checksum: 1843
+(in B_input) Msg from packet received: aaaaaaaaaaaaaaaaaaa 
+(in B_input) Sequence number: 0 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: aaaaaaaaaaaaaaaaaaa
+
+(in B_input) Sending ACK 0 to A
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1892.594482
+            INSERTEVENT: future time will be 1897.061768
+
+(in B_input) Going to state: 1
+
+EVENT time: 1897.061768,  type: 2, fromlayer3  entity: 0
+
+		sending 1 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 90
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 1910.573975,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. aaaaaaaaaaaaaaaaaaa 
+
+            TOLAYER3: packet being lost
+            START TIMER: starting timer at 1910.573975
+
+            INSERTEVENT: time is 1910.573975
+            INSERTEVENT: future time will be 1930.573975
+
+
+EVENT time: 1930.573975,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. aaaaaaaaaaaaaaaaaaa 
+
+            TOLAYER3: seq: 0, ack 0, check: 1843 aaaaaaaaaaaaaaaaaaa
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1930.573975
+            INSERTEVENT: future time will be 1940.002441
+
+            START TIMER: starting timer at 1930.573975
+
+            INSERTEVENT: time is 1930.573975
+            INSERTEVENT: future time will be 1950.573975
+
+
+EVENT time: 1940.002441,  type: 2, fromlayer3  entity: 1
+
+		sending 1 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : aaaaaaaaaaaaaaaaaaa 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1843
+(in B_input) Received Checksum: 1843
+(in B_input) Received seqnum 0, expected seqnum 1. Does not match. 
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 1940.002441
+            INSERTEVENT: future time will be 1947.465332
+
+
+EVENT time: 1947.465332,  type: 2, fromlayer3  entity: 0
+
+		sending 1 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 0
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Packet  0 received successfully at Receiver
+          STOP TIMER: stopping timer at 1947.465332
+  (Sender) (in A_input) Going to state 2
+
+EVENT time: 3512.483887,  type: 1, fromlayer5  entity: 0
+
+		sending 2 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 3512.483887
+            INSERTEVENT: future time will be 4630.183594
+
+          MAINLOOP: data given to student: bbbbbbbbbbbbbbbbbbb
+
+
+in A_output
+(Sender) (in A_output) state is 2
+(Sender) (in A_output) msg from upper layer is : bbbbbbbbbbbbbbbbbbb 
+(Sender) (in A_output) Message in newly created packet : bbbbbbbbbbbbbbbbbbb 
+
+            TOLAYER3: seq: 1, ack 0, check: 1863 bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 3512.483887
+            INSERTEVENT: future time will be 3515.214111
+
+            START TIMER: starting timer at 3512.483887
+
+            INSERTEVENT: time is 3512.483887
+            INSERTEVENT: future time will be 3532.483887
+
+(Sender) (in A_output) Packet 1 sent.
+(Sender) (in A_output) Now going to state 3
+
+EVENT time: 3515.214111,  type: 2, fromlayer3  entity: 1
+
+		sending 2 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : bbbbbbbbbbbbbbbbbbb 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1863
+(in B_input) Received Checksum: 1863
+(in B_input) Msg from packet received: bbbbbbbbbbbbbbbbbbb 
+(in B_input) Sequence number: 1 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: bbbbbbbbbbbbbbbbbbb
+
+(in B_input) Sending ACK 1 to A
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 3515.214111
+            INSERTEVENT: future time will be 3517.580566
+
+(in B_input) Going to state: 0
+
+EVENT time: 3517.580566,  type: 2, fromlayer3  entity: 0
+
+		sending 2 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 3532.483887,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. bbbbbbbbbbbbbbbbbbb 
+
+            TOLAYER3: packet being lost
+            START TIMER: starting timer at 3532.483887
+
+            INSERTEVENT: time is 3532.483887
+            INSERTEVENT: future time will be 3552.483887
+
+
+EVENT time: 3552.483887,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. bbbbbbbbbbbbbbbbbbb 
+
+            TOLAYER3: packet being lost
+            START TIMER: starting timer at 3552.483887
+
+            INSERTEVENT: time is 3552.483887
+            INSERTEVENT: future time will be 3572.483887
+
+
+EVENT time: 3572.483887,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. bbbbbbbbbbbbbbbbbbb 
+
+            TOLAYER3: seq: 1, ack 0, check: 1863 bbbbbbbbbbbbbbbbbbb
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 3572.483887
+            INSERTEVENT: future time will be 3578.732910
+
+            START TIMER: starting timer at 3572.483887
+
+            INSERTEVENT: time is 3572.483887
+            INSERTEVENT: future time will be 3592.483887
+
+
+EVENT time: 3578.732910,  type: 2, fromlayer3  entity: 1
+
+		sending 2 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : bbbbbbbbbbbbbbbbbbb 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1863
+(in B_input) Received Checksum: 1863
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 3578.732910
+            INSERTEVENT: future time will be 3580.213623
+
+
+EVENT time: 3580.213623,  type: 2, fromlayer3  entity: 0
+
+		sending 2 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Packet  1 received successfully at Receiver
+          STOP TIMER: stopping timer at 3580.213623
+  (Sender) (in A_input) Going to state 0
+
+EVENT time: 4630.183594,  type: 1, fromlayer5  entity: 0
+
+		sending 3 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 4630.183594
+            INSERTEVENT: future time will be 5705.288086
+
+          MAINLOOP: data given to student: ccccccccccccccccccc
+
+
+in A_output
+(Sender) (in A_output) state is 0
+(Sender) (in A_output) msg from upper layer is : ccccccccccccccccccc 
+(Sender) (in A_output) Message in newly created packet : ccccccccccccccccccc 
+
+            TOLAYER3: seq: 0, ack 0, check: 1881 ccccccccccccccccccc
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4630.183594
+            INSERTEVENT: future time will be 4636.544434
+
+            START TIMER: starting timer at 4630.183594
+
+            INSERTEVENT: time is 4630.183594
+            INSERTEVENT: future time will be 4650.183594
+
+(Sender) (in A_output) Packet 0 sent.
+(Sender) (in A_output) Now going to state 1
+
+EVENT time: 4636.544434,  type: 2, fromlayer3  entity: 1
+
+		sending 3 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : ccccccccccccccccccc 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1881
+(in B_input) Received Checksum: 1881
+(in B_input) Msg from packet received: ccccccccccccccccccc 
+(in B_input) Sequence number: 0 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: ccccccccccccccccccc
+
+(in B_input) Sending ACK 0 to A
+
+            TOLAYER3: packet being lost
+(in B_input) Going to state: 1
+
+EVENT time: 4650.183594,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ccccccccccccccccccc 
+
+            TOLAYER3: seq: 0, ack 0, check: 1881 ccccccccccccccccccc
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4650.183594
+            INSERTEVENT: future time will be 4651.242188
+
+            START TIMER: starting timer at 4650.183594
+
+            INSERTEVENT: time is 4650.183594
+            INSERTEVENT: future time will be 4670.183594
+
+
+EVENT time: 4651.242188,  type: 2, fromlayer3  entity: 1
+
+		sending 3 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : ccccccccccccccccccc 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1881
+(in B_input) Received Checksum: 1881
+(in B_input) Received seqnum 0, expected seqnum 1. Does not match. 
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: packet being lost
+
+EVENT time: 4670.183594,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ccccccccccccccccccc 
+
+            TOLAYER3: seq: 0, ack 0, check: 1881 ccccccccccccccccccc
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4670.183594
+            INSERTEVENT: future time will be 4675.457520
+
+            START TIMER: starting timer at 4670.183594
+
+            INSERTEVENT: time is 4670.183594
+            INSERTEVENT: future time will be 4690.183594
+
+
+EVENT time: 4675.457520,  type: 2, fromlayer3  entity: 1
+
+		sending 3 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : ccccccccccccccccccc 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1881
+(in B_input) Received Checksum: 1881
+(in B_input) Received seqnum 0, expected seqnum 1. Does not match. 
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: packet being lost
+
+EVENT time: 4690.183594,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ccccccccccccccccccc 
+
+            TOLAYER3: seq: 0, ack 0, check: 1881 ccccccccccccccccccc
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4690.183594
+            INSERTEVENT: future time will be 4698.964844
+
+            START TIMER: starting timer at 4690.183594
+
+            INSERTEVENT: time is 4690.183594
+            INSERTEVENT: future time will be 4710.183594
+
+
+EVENT time: 4698.964844,  type: 2, fromlayer3  entity: 1
+
+		sending 3 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : ccccccccccccccccccc 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1881
+(in B_input) Received Checksum: 1881
+(in B_input) Received seqnum 0, expected seqnum 1. Does not match. 
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: packet being lost
+
+EVENT time: 4710.183594,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ccccccccccccccccccc 
+
+            TOLAYER3: packet being lost
+            START TIMER: starting timer at 4710.183594
+
+            INSERTEVENT: time is 4710.183594
+            INSERTEVENT: future time will be 4730.183594
+
+
+EVENT time: 4730.183594,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ccccccccccccccccccc 
+
+            TOLAYER3: seq: 0, ack 0, check: 1881 ccccccccccccccccccc
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4730.183594
+            INSERTEVENT: future time will be 4735.002930
+
+            START TIMER: starting timer at 4730.183594
+
+            INSERTEVENT: time is 4730.183594
+            INSERTEVENT: future time will be 4750.183594
+
+
+EVENT time: 4735.002930,  type: 2, fromlayer3  entity: 1
+
+		sending 3 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : Zcccccccccccccccccc 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1872
+(in B_input) Received Checksum: 1881
+(in B_input) Received seqnum 0, expected seqnum 1. Does not match. 
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 4735.002930
+            INSERTEVENT: future time will be 4738.664551
+
+
+EVENT time: 4738.664551,  type: 2, fromlayer3  entity: 0
+
+		sending 3 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 0
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Packet  0 received successfully at Receiver
+          STOP TIMER: stopping timer at 4738.664551
+  (Sender) (in A_input) Going to state 2
+
+EVENT time: 5705.288086,  type: 1, fromlayer5  entity: 0
+
+		sending 4 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 5705.288086
+            INSERTEVENT: future time will be 7534.791016
+
+          MAINLOOP: data given to student: ddddddddddddddddddd
+
+
+in A_output
+(Sender) (in A_output) state is 2
+(Sender) (in A_output) msg from upper layer is : ddddddddddddddddddd 
+(Sender) (in A_output) Message in newly created packet : ddddddddddddddddddd 
+
+            TOLAYER3: seq: 1, ack 0, check: 1901 ddddddddddddddddddd
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5705.288086
+            INSERTEVENT: future time will be 5706.565430
+
+            START TIMER: starting timer at 5705.288086
+
+            INSERTEVENT: time is 5705.288086
+            INSERTEVENT: future time will be 5725.288086
+
+(Sender) (in A_output) Packet 1 sent.
+(Sender) (in A_output) Now going to state 3
+
+EVENT time: 5706.565430,  type: 2, fromlayer3  entity: 1
+
+		sending 4 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : ddddddddddddddddddd 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1901
+(in B_input) Received Checksum: 1901
+(in B_input) Msg from packet received: ddddddddddddddddddd 
+(in B_input) Sequence number: 1 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: ddddddddddddddddddd
+
+(in B_input) Sending ACK 1 to A
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5706.565430
+            INSERTEVENT: future time will be 5712.183105
+
+(in B_input) Going to state: 0
+
+EVENT time: 5712.183105,  type: 2, fromlayer3  entity: 0
+
+		sending 4 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 5725.288086,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ddddddddddddddddddd 
+
+            TOLAYER3: seq: 1, ack 0, check: 1901 ddddddddddddddddddd
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5725.288086
+            INSERTEVENT: future time will be 5727.319824
+
+            START TIMER: starting timer at 5725.288086
+
+            INSERTEVENT: time is 5725.288086
+            INSERTEVENT: future time will be 5745.288086
+
+
+EVENT time: 5727.319824,  type: 2, fromlayer3  entity: 1
+
+		sending 4 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : Zdddddddddddddddddd 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1891
+(in B_input) Received Checksum: 1901
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5727.319824
+            INSERTEVENT: future time will be 5735.062988
+
+
+EVENT time: 5735.062988,  type: 2, fromlayer3  entity: 0
+
+		sending 4 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 5745.288086,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ddddddddddddddddddd 
+
+            TOLAYER3: seq: 1, ack 0, check: 1901 ddddddddddddddddddd
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5745.288086
+            INSERTEVENT: future time will be 5751.979492
+
+            START TIMER: starting timer at 5745.288086
+
+            INSERTEVENT: time is 5745.288086
+            INSERTEVENT: future time will be 5765.288086
+
+
+EVENT time: 5751.979492,  type: 2, fromlayer3  entity: 1
+
+		sending 4 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : ddddddddddddddddddd 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1901
+(in B_input) Received Checksum: 1901
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5751.979492
+            INSERTEVENT: future time will be 5757.452148
+
+
+EVENT time: 5757.452148,  type: 2, fromlayer3  entity: 0
+
+		sending 4 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 5765.288086,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. ddddddddddddddddddd 
+
+            TOLAYER3: seq: 1, ack 0, check: 1901 ddddddddddddddddddd
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5765.288086
+            INSERTEVENT: future time will be 5770.674805
+
+            START TIMER: starting timer at 5765.288086
+
+            INSERTEVENT: time is 5765.288086
+            INSERTEVENT: future time will be 5785.288086
+
+
+EVENT time: 5770.674805,  type: 2, fromlayer3  entity: 1
+
+		sending 4 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : ddddddddddddddddddd 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1901
+(in B_input) Received Checksum: 1901
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 5770.674805
+            INSERTEVENT: future time will be 5772.378906
+
+
+EVENT time: 5772.378906,  type: 2, fromlayer3  entity: 0
+
+		sending 4 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Packet  1 received successfully at Receiver
+          STOP TIMER: stopping timer at 5772.378906
+  (Sender) (in A_input) Going to state 0
+
+EVENT time: 7534.791016,  type: 1, fromlayer5  entity: 0
+
+		sending 5 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 7534.791016
+            INSERTEVENT: future time will be 7651.169922
+
+          MAINLOOP: data given to student: eeeeeeeeeeeeeeeeeee
+
+
+in A_output
+(Sender) (in A_output) state is 0
+(Sender) (in A_output) msg from upper layer is : eeeeeeeeeeeeeeeeeee 
+(Sender) (in A_output) Message in newly created packet : eeeeeeeeeeeeeeeeeee 
+
+            TOLAYER3: seq: 0, ack 0, check: 1919 eeeeeeeeeeeeeeeeeee
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 7534.791016
+            INSERTEVENT: future time will be 7542.749023
+
+            START TIMER: starting timer at 7534.791016
+
+            INSERTEVENT: time is 7534.791016
+            INSERTEVENT: future time will be 7554.791016
+
+(Sender) (in A_output) Packet 0 sent.
+(Sender) (in A_output) Now going to state 1
+
+EVENT time: 7542.749023,  type: 2, fromlayer3  entity: 1
+
+		sending 5 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : eeeeeeeeeeeeeeeeeee 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1919
+(in B_input) Received Checksum: 1919
+(in B_input) Msg from packet received: eeeeeeeeeeeeeeeeeee 
+(in B_input) Sequence number: 0 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: eeeeeeeeeeeeeeeeeee
+
+(in B_input) Sending ACK 0 to A
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 7542.749023
+            INSERTEVENT: future time will be 7547.141602
+
+(in B_input) Going to state: 1
+
+EVENT time: 7547.141602,  type: 2, fromlayer3  entity: 0
+
+		sending 5 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 0
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Packet  0 received successfully at Receiver
+          STOP TIMER: stopping timer at 7547.141602
+  (Sender) (in A_input) Going to state 2
+
+EVENT time: 7651.169922,  type: 1, fromlayer5  entity: 0
+
+		sending 6 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 7651.169922
+            INSERTEVENT: future time will be 8255.224609
+
+          MAINLOOP: data given to student: fffffffffffffffffff
+
+
+in A_output
+(Sender) (in A_output) state is 2
+(Sender) (in A_output) msg from upper layer is : fffffffffffffffffff 
+(Sender) (in A_output) Message in newly created packet : fffffffffffffffffff 
+
+            TOLAYER3: seq: 1, ack 0, check: 1939 fffffffffffffffffff
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 7651.169922
+            INSERTEVENT: future time will be 7661.018066
+
+            START TIMER: starting timer at 7651.169922
+
+            INSERTEVENT: time is 7651.169922
+            INSERTEVENT: future time will be 7671.169922
+
+(Sender) (in A_output) Packet 1 sent.
+(Sender) (in A_output) Now going to state 3
+
+EVENT time: 7661.018066,  type: 2, fromlayer3  entity: 1
+
+		sending 6 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : fffffffffffffffffff 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1939
+(in B_input) Received Checksum: 1939
+(in B_input) Msg from packet received: fffffffffffffffffff 
+(in B_input) Sequence number: 1 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: fffffffffffffffffff
+
+(in B_input) Sending ACK 1 to A
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 7661.018066
+            INSERTEVENT: future time will be 7663.763184
+
+(in B_input) Going to state: 0
+
+EVENT time: 7663.763184,  type: 2, fromlayer3  entity: 0
+
+		sending 6 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Packet  1 received successfully at Receiver
+          STOP TIMER: stopping timer at 7663.763184
+  (Sender) (in A_input) Going to state 0
+
+EVENT time: 8255.224609,  type: 1, fromlayer5  entity: 0
+
+		sending 7 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 8255.224609
+            INSERTEVENT: future time will be 9763.475586
+
+          MAINLOOP: data given to student: ggggggggggggggggggg
+
+
+in A_output
+(Sender) (in A_output) state is 0
+(Sender) (in A_output) msg from upper layer is : ggggggggggggggggggg 
+(Sender) (in A_output) Message in newly created packet : ggggggggggggggggggg 
+
+            TOLAYER3: seq: 0, ack 0, check: 1957 ggggggggggggggggggg
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 8255.224609
+            INSERTEVENT: future time will be 8261.839844
+
+            START TIMER: starting timer at 8255.224609
+
+            INSERTEVENT: time is 8255.224609
+            INSERTEVENT: future time will be 8275.224609
+
+(Sender) (in A_output) Packet 0 sent.
+(Sender) (in A_output) Now going to state 1
+
+EVENT time: 8261.839844,  type: 2, fromlayer3  entity: 1
+
+		sending 7 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : ggggggggggggggggggg 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1957
+(in B_input) Received Checksum: 1957
+(in B_input) Msg from packet received: ggggggggggggggggggg 
+(in B_input) Sequence number: 0 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: ggggggggggggggggggg
+
+(in B_input) Sending ACK 0 to A
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 8261.839844
+            INSERTEVENT: future time will be 8265.146484
+
+(in B_input) Going to state: 1
+
+EVENT time: 8265.146484,  type: 2, fromlayer3  entity: 0
+
+		sending 7 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 0
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Packet  0 received successfully at Receiver
+          STOP TIMER: stopping timer at 8265.146484
+  (Sender) (in A_input) Going to state 2
+
+EVENT time: 9763.475586,  type: 1, fromlayer5  entity: 0
+
+		sending 8 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 9763.475586
+            INSERTEVENT: future time will be 10932.203125
+
+          MAINLOOP: data given to student: hhhhhhhhhhhhhhhhhhh
+
+
+in A_output
+(Sender) (in A_output) state is 2
+(Sender) (in A_output) msg from upper layer is : hhhhhhhhhhhhhhhhhhh 
+(Sender) (in A_output) Message in newly created packet : hhhhhhhhhhhhhhhhhhh 
+
+            TOLAYER3: seq: 1, ack 0, check: 1977 hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9763.475586
+            INSERTEVENT: future time will be 9764.989258
+
+            START TIMER: starting timer at 9763.475586
+
+            INSERTEVENT: time is 9763.475586
+            INSERTEVENT: future time will be 9783.475586
+
+(Sender) (in A_output) Packet 1 sent.
+(Sender) (in A_output) Now going to state 3
+
+EVENT time: 9764.989258,  type: 2, fromlayer3  entity: 1
+
+		sending 8 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : Zhhhhhhhhhhhhhhhhhh 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1963
+(in B_input) Received Checksum: 1977
+(in B_input) Checksum does not match. Received packet is corrupt 
+Received packet's checksum 1977 | expected checksum 1963
+(in B_input) Resending ACK 0
+Sending ack packet to layer3 of sender bcz of wrong checksum
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9764.989258
+            INSERTEVENT: future time will be 9766.086914
+
+
+EVENT time: 9766.086914,  type: 2, fromlayer3  entity: 0
+
+		sending 8 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 90
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 9783.475586,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. hhhhhhhhhhhhhhhhhhh 
+
+            TOLAYER3: seq: 1, ack 0, check: 1977 hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9783.475586
+            INSERTEVENT: future time will be 9785.625000
+
+            START TIMER: starting timer at 9783.475586
+
+            INSERTEVENT: time is 9783.475586
+            INSERTEVENT: future time will be 9803.475586
+
+
+EVENT time: 9785.625000,  type: 2, fromlayer3  entity: 1
+
+		sending 8 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : hhhhhhhhhhhhhhhhhhh 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1977
+(in B_input) Received Checksum: 1977
+(in B_input) Msg from packet received: hhhhhhhhhhhhhhhhhhh 
+(in B_input) Sequence number: 1 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: hhhhhhhhhhhhhhhhhhh
+
+(in B_input) Sending ACK 1 to A
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9785.625000
+            INSERTEVENT: future time will be 9787.208984
+
+(in B_input) Going to state: 0
+
+EVENT time: 9787.208984,  type: 2, fromlayer3  entity: 0
+
+		sending 8 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 9803.475586,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. hhhhhhhhhhhhhhhhhhh 
+
+            TOLAYER3: seq: 1, ack 0, check: 1977 hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9803.475586
+            INSERTEVENT: future time will be 9808.722656
+
+            START TIMER: starting timer at 9803.475586
+
+            INSERTEVENT: time is 9803.475586
+            INSERTEVENT: future time will be 9823.475586
+
+
+EVENT time: 9808.722656,  type: 2, fromlayer3  entity: 1
+
+		sending 8 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : hhhhhhhhhhhhhhhhhhh 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1977
+(in B_input) Received Checksum: 1977
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9808.722656
+            INSERTEVENT: future time will be 9817.666016
+
+
+EVENT time: 9817.666016,  type: 2, fromlayer3  entity: 0
+
+		sending 8 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 9823.475586,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. hhhhhhhhhhhhhhhhhhh 
+
+            TOLAYER3: seq: 1, ack 0, check: 1977 hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9823.475586
+            INSERTEVENT: future time will be 9832.797852
+
+            START TIMER: starting timer at 9823.475586
+
+            INSERTEVENT: time is 9823.475586
+            INSERTEVENT: future time will be 9843.475586
+
+
+EVENT time: 9832.797852,  type: 2, fromlayer3  entity: 1
+
+		sending 8 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : Zhhhhhhhhhhhhhhhhhh 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 1963
+(in B_input) Received Checksum: 1977
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9832.797852
+            INSERTEVENT: future time will be 9835.793945
+
+
+EVENT time: 9835.793945,  type: 2, fromlayer3  entity: 0
+
+		sending 8 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 91
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Checksum does not match. Received ACK is corrupt
+
+EVENT time: 9843.475586,  type: 0, timerinterrupt   entity: 0
+(A_timerinterrupt) Resending .. hhhhhhhhhhhhhhhhhhh 
+
+            TOLAYER3: seq: 1, ack 0, check: 1977 hhhhhhhhhhhhhhhhhhh
+            TOLAYER3: packet being corrupted
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9843.475586
+            INSERTEVENT: future time will be 9844.625000
+
+            START TIMER: starting timer at 9843.475586
+
+            INSERTEVENT: time is 9843.475586
+            INSERTEVENT: future time will be 9863.475586
+
+
+EVENT time: 9844.625000,  type: 2, fromlayer3  entity: 1
+
+		sending 8 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : hhhhhhhhhhhhhhhhhhh 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 2121
+(in B_input) Received Checksum: 1977
+(in B_input) Received seqnum 1, expected seqnum 0. Does not match. 
+(in B_input) Resending ACK 1
+Sending ack packet to layer3 of sender bcz of wrong recv pkt
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 9844.625000
+            INSERTEVENT: future time will be 9852.193359
+
+
+EVENT time: 9852.193359,  type: 2, fromlayer3  entity: 0
+
+		sending 8 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Packet  1 received successfully at Receiver
+          STOP TIMER: stopping timer at 9852.193359
+  (Sender) (in A_input) Going to state 0
+
+EVENT time: 10932.203125,  type: 1, fromlayer5  entity: 0
+
+		sending 9 th msg from layer 5
+
+          GENERATE NEXT ARRIVAL: creating new arrival
+
+            INSERTEVENT: time is 10932.203125
+            INSERTEVENT: future time will be 11718.522461
+
+          MAINLOOP: data given to student: iiiiiiiiiiiiiiiiiii
+
+
+in A_output
+(Sender) (in A_output) state is 0
+(Sender) (in A_output) msg from upper layer is : iiiiiiiiiiiiiiiiiii 
+(Sender) (in A_output) Message in newly created packet : iiiiiiiiiiiiiiiiiii 
+
+            TOLAYER3: seq: 0, ack 0, check: 1995 iiiiiiiiiiiiiiiiiii
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 10932.203125
+            INSERTEVENT: future time will be 10940.149414
+
+            START TIMER: starting timer at 10932.203125
+
+            INSERTEVENT: time is 10932.203125
+            INSERTEVENT: future time will be 10952.203125
+
+(Sender) (in A_output) Packet 0 sent.
+(Sender) (in A_output) Now going to state 1
+
+EVENT time: 10940.149414,  type: 2, fromlayer3  entity: 1
+
+		sending 9 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 0 
+(in B_input) Msg from packet received is : iiiiiiiiiiiiiiiiiii 
+(in B_input) Seqnum of received packet : 0
+(in B_input) Calculated Checksum: 1995
+(in B_input) Received Checksum: 1995
+(in B_input) Msg from packet received: iiiiiiiiiiiiiiiiiii 
+(in B_input) Sequence number: 0 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: iiiiiiiiiiiiiiiiiii
+
+(in B_input) Sending ACK 0 to A
+
+            TOLAYER3: seq: 0, ack 0, check: 0 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 10940.149414
+            INSERTEVENT: future time will be 10944.875977
+
+(in B_input) Going to state: 1
+
+EVENT time: 10944.875977,  type: 2, fromlayer3  entity: 0
+
+		sending 9 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 1
+  (Sender) (in A_input) ACK received: 0
+  (Sender) (in A_input) Calculated Checksum: 0
+  (Sender) (in A_input) Received Checksum: 0
+  (Sender) (in A_input) Packet  0 received successfully at Receiver
+          STOP TIMER: stopping timer at 10944.875977
+  (Sender) (in A_input) Going to state 2
+
+EVENT time: 11718.522461,  type: 1, fromlayer5  entity: 0
+
+		sending 10 th msg from layer 5
+
+          MAINLOOP: data given to student: jjjjjjjjjjjjjjjjjjj
+
+
+in A_output
+(Sender) (in A_output) state is 2
+(Sender) (in A_output) msg from upper layer is : jjjjjjjjjjjjjjjjjjj 
+(Sender) (in A_output) Message in newly created packet : jjjjjjjjjjjjjjjjjjj 
+
+            TOLAYER3: seq: 1, ack 0, check: 2015 jjjjjjjjjjjjjjjjjjj
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 11718.522461
+            INSERTEVENT: future time will be 11723.422852
+
+            START TIMER: starting timer at 11718.522461
+
+            INSERTEVENT: time is 11718.522461
+            INSERTEVENT: future time will be 11738.522461
+
+(Sender) (in A_output) Packet 1 sent.
+(Sender) (in A_output) Now going to state 3
+
+EVENT time: 11723.422852,  type: 2, fromlayer3  entity: 1
+
+		sending 10 th msg from layer 3
+
+
+
+in B_input
+(in B_input) State is : 1 
+(in B_input) Msg from packet received is : jjjjjjjjjjjjjjjjjjj 
+(in B_input) Seqnum of received packet : 1
+(in B_input) Calculated Checksum: 2015
+(in B_input) Received Checksum: 2015
+(in B_input) Msg from packet received: jjjjjjjjjjjjjjjjjjj 
+(in B_input) Sequence number: 1 
+Sending to layer 5 of receiver 
+
+          TOLAYER5: data received: jjjjjjjjjjjjjjjjjjj
+
+(in B_input) Sending ACK 1 to A
+
+            TOLAYER3: seq: 0, ack 1, check: 1 
+            TOLAYER3: scheduling arrival on other side
+
+
+            INSERTEVENT: time is 11723.422852
+            INSERTEVENT: future time will be 11733.161133
+
+(in B_input) Going to state: 0
+
+EVENT time: 11733.161133,  type: 2, fromlayer3  entity: 0
+
+		sending 10 th msg from layer 3
+
+in A_input
+
+  (Sender) (in A_input) State is 3
+  (Sender) (in A_input) ACK received: 1
+  (Sender) (in A_input) Calculated Checksum: 1
+  (Sender) (in A_input) Received Checksum: 1
+  (Sender) (in A_input) Packet  1 received successfully at Receiver
+          STOP TIMER: stopping timer at 11733.161133
+  (Sender) (in A_input) Going to state 0
+ Simulator terminated at time 11733.161133
+ after sending 10 msgs from layer5
