@@ -1,0 +1,219 @@
+-----  Alternating Bit Protocol -------- 
+
+number of messages to simulate: 10
+packet loss probability : 0.100000
+packet corruption probability : 0.300000
+average time between messages from sender's layer5 : 1000.000000
+TRACE: 4
+
+EVENT time: 1870.573975,  type: 1, fromlayer5  entity: 0
+            TOLAYER3: packet being corrupted
+**** At 1870.573975 in A_output() : Sending pkt0 aaaaaaaaaaaaaaaaaaa ****
+
+EVENT time: 1876.039062,  type: 2, fromlayer3  entity: 1
+
+EVENT time: 1878.220703,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 1890.573975,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 1892.594482,  type: 2, fromlayer3  entity: 1
+**** At 1892.594482 in B_input() : Correct pkt received. pkt0 aaaaaaaaaaaaaaaaaaa ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 1897.061768,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 1910.573975,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being lost
+
+EVENT time: 1930.573975,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 1940.002441,  type: 2, fromlayer3  entity: 1
+**** At 1940.002441 in B_input() : Resending ACK for pkt0 aaaaaaaaaaaaaaaaaaa ****
+
+EVENT time: 1947.465332,  type: 2, fromlayer3  entity: 0
+**** At 1947.465332 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 3512.483887,  type: 1, fromlayer5  entity: 0
+**** At 3512.483887 in A_output() : Sending pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+EVENT time: 3515.214111,  type: 2, fromlayer3  entity: 1
+**** At 3515.214111 in B_input() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 3517.580566,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 3532.483887,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being lost
+
+EVENT time: 3552.483887,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being lost
+
+EVENT time: 3572.483887,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 3578.732910,  type: 2, fromlayer3  entity: 1
+**** At 3578.732910 in B_input() : Resending ACK for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+EVENT time: 3580.213623,  type: 2, fromlayer3  entity: 0
+**** At 3580.213623 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 4630.183594,  type: 1, fromlayer5  entity: 0
+**** At 4630.183594 in A_output() : Sending pkt0 ccccccccccccccccccc ****
+
+EVENT time: 4636.544434,  type: 2, fromlayer3  entity: 1
+**** At 4636.544434 in B_input() : Correct pkt received. pkt0 ccccccccccccccccccc ****
+            TOLAYER3: packet being lost
+
+EVENT time: 4650.183594,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 4651.242188,  type: 2, fromlayer3  entity: 1
+**** At 4651.242188 in B_input() : Resending ACK for pkt0 ccccccccccccccccccc ****
+            TOLAYER3: packet being lost
+
+EVENT time: 4670.183594,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 4675.457520,  type: 2, fromlayer3  entity: 1
+**** At 4675.457520 in B_input() : Resending ACK for pkt0 ccccccccccccccccccc ****
+            TOLAYER3: packet being lost
+
+EVENT time: 4690.183594,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 4698.964844,  type: 2, fromlayer3  entity: 1
+**** At 4698.964844 in B_input() : Resending ACK for pkt0 ccccccccccccccccccc ****
+            TOLAYER3: packet being lost
+
+EVENT time: 4710.183594,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being lost
+
+EVENT time: 4730.183594,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being corrupted
+
+EVENT time: 4735.002930,  type: 2, fromlayer3  entity: 1
+**** At 4735.002930 in B_input() : Resending ACK for pkt0 Zcccccccccccccccccc ****
+
+EVENT time: 4738.664551,  type: 2, fromlayer3  entity: 0
+**** At 4738.664551 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 5705.288086,  type: 1, fromlayer5  entity: 0
+**** At 5705.288086 in A_output() : Sending pkt1 ddddddddddddddddddd ****
+
+EVENT time: 5706.565430,  type: 2, fromlayer3  entity: 1
+**** At 5706.565430 in B_input() : Correct pkt received. pkt1 ddddddddddddddddddd ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 5712.183105,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 5725.288086,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being corrupted
+
+EVENT time: 5727.319824,  type: 2, fromlayer3  entity: 1
+**** At 5727.319824 in B_input() : Resending ACK for pkt1 Zdddddddddddddddddd ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 5735.062988,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 5745.288086,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 5751.979492,  type: 2, fromlayer3  entity: 1
+**** At 5751.979492 in B_input() : Resending ACK for pkt1 ddddddddddddddddddd ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 5757.452148,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 5765.288086,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 5770.674805,  type: 2, fromlayer3  entity: 1
+**** At 5770.674805 in B_input() : Resending ACK for pkt1 ddddddddddddddddddd ****
+
+EVENT time: 5772.378906,  type: 2, fromlayer3  entity: 0
+**** At 5772.378906 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 7534.791016,  type: 1, fromlayer5  entity: 0
+**** At 7534.791016 in A_output() : Sending pkt0 eeeeeeeeeeeeeeeeeee ****
+
+EVENT time: 7542.749023,  type: 2, fromlayer3  entity: 1
+**** At 7542.749023 in B_input() : Correct pkt received. pkt0 eeeeeeeeeeeeeeeeeee ****
+
+EVENT time: 7547.141602,  type: 2, fromlayer3  entity: 0
+**** At 7547.141602 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 7651.169922,  type: 1, fromlayer5  entity: 0
+**** At 7651.169922 in A_output() : Sending pkt1 fffffffffffffffffff ****
+
+EVENT time: 7661.018066,  type: 2, fromlayer3  entity: 1
+**** At 7661.018066 in B_input() : Correct pkt received. pkt1 fffffffffffffffffff ****
+
+EVENT time: 7663.763184,  type: 2, fromlayer3  entity: 0
+**** At 7663.763184 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 8255.224609,  type: 1, fromlayer5  entity: 0
+**** At 8255.224609 in A_output() : Sending pkt0 ggggggggggggggggggg ****
+
+EVENT time: 8261.839844,  type: 2, fromlayer3  entity: 1
+**** At 8261.839844 in B_input() : Correct pkt received. pkt0 ggggggggggggggggggg ****
+
+EVENT time: 8265.146484,  type: 2, fromlayer3  entity: 0
+**** At 8265.146484 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 9763.475586,  type: 1, fromlayer5  entity: 0
+            TOLAYER3: packet being corrupted
+**** At 9763.475586 in A_output() : Sending pkt1 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 9764.989258,  type: 2, fromlayer3  entity: 1
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9766.086914,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 9783.475586,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 9785.625000,  type: 2, fromlayer3  entity: 1
+**** At 9785.625000 in B_input() : Correct pkt received. pkt1 hhhhhhhhhhhhhhhhhhh ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9787.208984,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 9803.475586,  type: 0, timerinterrupt   entity: 0
+
+EVENT time: 9808.722656,  type: 2, fromlayer3  entity: 1
+**** At 9808.722656 in B_input() : Resending ACK for pkt1 hhhhhhhhhhhhhhhhhhh ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9817.666016,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 9823.475586,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9832.797852,  type: 2, fromlayer3  entity: 1
+**** At 9832.797852 in B_input() : Resending ACK for pkt1 Zhhhhhhhhhhhhhhhhhh ****
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9835.793945,  type: 2, fromlayer3  entity: 0
+
+EVENT time: 9843.475586,  type: 0, timerinterrupt   entity: 0
+            TOLAYER3: packet being corrupted
+
+EVENT time: 9844.625000,  type: 2, fromlayer3  entity: 1
+**** At 9844.625000 in B_input() : Resending ACK for pkt1 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 9852.193359,  type: 2, fromlayer3  entity: 0
+**** At 9852.193359 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 10932.203125,  type: 1, fromlayer5  entity: 0
+**** At 10932.203125 in A_output() : Sending pkt0 iiiiiiiiiiiiiiiiiii ****
+
+EVENT time: 10940.149414,  type: 2, fromlayer3  entity: 1
+**** At 10940.149414 in B_input() : Correct pkt received. pkt0 iiiiiiiiiiiiiiiiiii ****
+
+EVENT time: 10944.875977,  type: 2, fromlayer3  entity: 0
+**** At 10944.875977 in A_input() : ACK received for pkt0  ****
+
+EVENT time: 11718.522461,  type: 1, fromlayer5  entity: 0
+**** At 11718.522461 in A_output() : Sending pkt1 jjjjjjjjjjjjjjjjjjj ****
+
+EVENT time: 11723.422852,  type: 2, fromlayer3  entity: 1
+**** At 11723.422852 in B_input() : Correct pkt received. pkt1 jjjjjjjjjjjjjjjjjjj ****
+
+EVENT time: 11733.161133,  type: 2, fromlayer3  entity: 0
+**** At 11733.161133 in A_input() : ACK received for pkt0  ****
+
+ Simulator terminated at time 11733.161133
+ after sending 10 msgs from layer5
