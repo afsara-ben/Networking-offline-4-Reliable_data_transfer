@@ -1,0 +1,1592 @@
+afsara@inspiron-5559:~/Desktop/network-offline4$ ./rdt_gbn.o 
+-----  Go Back-N Protocol -------- 
+
+number of messages to simulate: 20
+packet loss probability : 0.200000
+packet corruption probability : 0.200000
+average time between messages from sender's layer5 : 10.000000
+TRACE: 4
+Window size : 7
+
+EVENT time: 18.705740,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: aaaaaaaaaaaaaaaaaaa
+
+
+          **** Printing data in buffer **** 
+                
+                
+                
+                
+                
+                
+                
+                
+            **********************************
+
+[A_output] Timer started for base 0
+**** At 18.705740 in A_output() : Correct pkt received. pkt0 aaaaaaaaaaaaaaaaaaa ****
+
+EVENT time: 24.170835,  type: 2, fromlayer3  entity: 1
+
+**** At 24.170835 in B_input() : Correct pkt received. pkt0 aaaaaaaaaaaaaaaaaaa ****
+[B_input] Sending ACK0 to A
+          TOLAYER3: packet being corrupted
+
+EVENT time: 29.402449,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 144 | Received checksum : 0
+[A_input] Checksum does not match. Received ACK0 is corrupt
+
+EVENT time: 35.124840,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: bbbbbbbbbbbbbbbbbbb
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                
+                
+                
+                
+                
+                
+                
+            **********************************
+
+          TOLAYER3: packet1 bbbbbbbbbbbbbbbbbbb being lost
+**** At 35.124840 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+EVENT time: 37.680447,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ccccccccccccccccccc
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                
+                
+                
+                
+                
+                
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 37.680447 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+
+EVENT time: 42.147713,  type: 2, fromlayer3  entity: 1
+
+**** At 42.147713 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK0 for pkt2 Zcccccccccccccccccc ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 43.705742,  type: 0, timerinterrupt   entity: 0
+
+
+[A_timerinterrupt] Timer started for base 0
+[A_timerinterrupt] Resending pkt0 aaaaaaaaaaaaaaaaaaa 
+[A_timerinterrupt] Resending pkt1 bbbbbbbbbbbbbbbbbbb 
+[A_timerinterrupt] Resending pkt2 ccccccccccccccccccc 
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 46.394402,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ddddddddddddddddddd
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                
+                
+                
+                
+                
+            **********************************
+
+          TOLAYER3: packet3 ddddddddddddddddddd being lost
+**** At 46.394402 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+
+EVENT time: 53.134167,  type: 2, fromlayer3  entity: 1
+
+**** At 53.134167 in B_input() :  Duplicate Packet received. Resending ACK0 for pkt0 aaaaaaaaaaaaaaaaaaa ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 53.202408,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: eeeeeeeeeeeeeeeeeee
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                
+                
+                
+                
+            **********************************
+
+**** At 53.202408 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+
+EVENT time: 58.710968,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 90 | Received checksum : 0
+[A_input] Checksum does not match. Received ACK0 is corrupt
+
+EVENT time: 60.597080,  type: 2, fromlayer3  entity: 1
+
+**** At 60.597080 in B_input() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+[B_input] Sending ACK1 to A
+          TOLAYER3: packet0  being lost
+
+EVENT time: 68.705742,  type: 0, timerinterrupt   entity: 0
+
+
+[A_timerinterrupt] Timer started for base 0
+[A_timerinterrupt] Resending pkt0 aaaaaaaaaaaaaaaaaaa 
+          TOLAYER3: packet being corrupted
+[A_timerinterrupt] Resending pkt1 bbbbbbbbbbbbbbbbbbb 
+[A_timerinterrupt] Resending pkt2 ccccccccccccccccccc 
+          TOLAYER3: packet2 ccccccccccccccccccc being lost
+[A_timerinterrupt] Resending pkt3 ddddddddddddddddddd 
+[A_timerinterrupt] Resending pkt4 eeeeeeeeeeeeeeeeeee 
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 69.615746,  type: 2, fromlayer3  entity: 1
+
+**** At 69.615746 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK1 for pkt2 Zcccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 72.839478,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: fffffffffffffffffff
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                
+                
+                
+            **********************************
+
+**** At 72.839478 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+
+EVENT time: 73.774330,  type: 2, fromlayer3  entity: 1
+
+**** At 73.774330 in B_input() :  Duplicate Packet received. Resending ACK1 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 75.865677,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 91 | Received checksum : 1
+[A_input] Checksum does not match. Received ACK1 is corrupt
+
+EVENT time: 79.293877,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ggggggggggggggggggg
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                
+                
+            **********************************
+
+**** At 79.293877 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+
+EVENT time: 79.527443,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 1 | Received checksum : 1
+**** At 79.527443 in A_input() : ACK1 received for pkt1:  ****
+Base : 2 
+nextseqnum_A : 7
+
+base_A is not equal to nextseqnum_A
+
+
+[A_input] Timer stopped for pkt1
+[A_input] Timer started for base 2
+
+
+
+EVENT time: 79.612297,  type: 2, fromlayer3  entity: 1
+
+**** At 79.612297 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK1 for pkt0 Zaaaaaaaaaaaaaaaaaa ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 81.487488,  type: 2, fromlayer3  entity: 1
+
+**** At 81.487488 in B_input() :  Duplicate Packet received. Resending ACK1 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 82.793877,  type: 2, fromlayer3  entity: 1
+
+**** At 82.793877 in B_input() :  Duplicate Packet received. Resending ACK1 for pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 85.229965,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 91 | Received checksum : 1
+[A_input] Checksum does not match. Received ACK1 is corrupt
+
+EVENT time: 88.372498,  type: 2, fromlayer3  entity: 1
+
+**** At 88.372498 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK1 for pkt4 Zeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 90.178833,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 91 | Received checksum : 1
+[A_input] Checksum does not match. Received ACK1 is corrupt
+
+EVENT time: 91.250336,  type: 2, fromlayer3  entity: 1
+
+**** At 91.250336 in B_input() :  Duplicate Packet received. Resending ACK1 for pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 92.527794,  type: 2, fromlayer3  entity: 1
+
+**** At 92.527794 in B_input() :  Duplicate Packet received. Resending ACK1 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 95.544830,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 1 | Received checksum : 1
+**** At 95.544830 in A_input() : ACK1 received for pkt1:  ****
+
+EVENT time: 97.588913,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: hhhhhhhhhhhhhhhhhhh
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 97.588913 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 103.061516,  type: 2, fromlayer3  entity: 1
+
+**** At 103.061516 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK1 for pkt7 Zhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 104.527443,  type: 0, timerinterrupt   entity: 0
+
+
+[A_timerinterrupt] Timer started for base 2
+[A_timerinterrupt] Resending pkt2 ccccccccccccccccccc 
+[A_timerinterrupt] Resending pkt3 ddddddddddddddddddd 
+          TOLAYER3: packet3 ddddddddddddddddddd being lost
+[A_timerinterrupt] Resending pkt4 eeeeeeeeeeeeeeeeeee 
+[A_timerinterrupt] Resending pkt5 fffffffffffffffffff 
+[A_timerinterrupt] Resending pkt6 ggggggggggggggggggg 
+[A_timerinterrupt] Resending pkt7 hhhhhhhhhhhhhhhhhhh 
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 106.231682,  type: 2, fromlayer3  entity: 1
+
+**** At 106.231682 in B_input() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[B_input] Sending ACK2 to A
+
+EVENT time: 108.448372,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 1 | Received checksum : 1
+**** At 108.448372 in A_input() : ACK1 received for pkt1:  ****
+
+EVENT time: 109.216560,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: iiiiiiiiiiiiiiiiiii
+
+
+          **** Printing data in buffer **** 
+                aaaaaaaaaaaaaaaaaaa
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet0 iiiiiiiiiiiiiiiiiii being lost
+**** At 109.216560 in A_output() : Correct pkt received. pkt0 iiiiiiiiiiiiiiiiiii ****
+**** At 109.216560 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet being corrupted
+[A_output] Timer started for base 2
+Warning: attempt to start a timer that is already started
+**** At 109.216560 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+**** At 109.216560 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 109.216560 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 109.216560 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 109.216560 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet being corrupted
+**** At 109.216560 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 114.189545,  type: 2, fromlayer3  entity: 1
+
+**** At 114.189545 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 115.437195,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: jjjjjjjjjjjjjjjjjjj
+
+
+          **** Printing data in buffer **** 
+                iiiiiiiiiiiiiiiiiii
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 115.437195 in A_output() : Correct pkt received. pkt0 jjjjjjjjjjjjjjjjjjj ****
+          TOLAYER3: packet1 bbbbbbbbbbbbbbbbbbb being lost
+**** At 115.437195 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet2 ccccccccccccccccccc being lost
+[A_output] Timer started for base 2
+Warning: attempt to start a timer that is already started
+**** At 115.437195 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+**** At 115.437195 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 115.437195 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 115.437195 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 115.437195 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 115.437195 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 117.936554,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 117.936554 in A_input() : ACK2 received for pkt2:  ****
+Base : 3 
+nextseqnum_A : 8
+
+base_A is not equal to nextseqnum_A
+
+
+[A_input] Timer stopped for pkt2
+[A_input] Timer started for base 3
+
+
+
+EVENT time: 118.582008,  type: 2, fromlayer3  entity: 1
+
+**** At 118.582008 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 120.152161,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: kkkkkkkkkkkkkkkkkkk
+
+
+          **** Printing data in buffer **** 
+                jjjjjjjjjjjjjjjjjjj
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 120.152161 in A_output() : Correct pkt received. pkt0 kkkkkkkkkkkkkkkkkkk ****
+**** At 120.152161 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 120.152161 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 120.152161 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 120.152161 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 120.152161 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 120.152161 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 120.152161 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 122.983337,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: lllllllllllllllllll
+
+
+          **** Printing data in buffer **** 
+                kkkkkkkkkkkkkkkkkkk
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet0 lllllllllllllllllll being lost
+**** At 122.983337 in A_output() : Correct pkt received. pkt0 lllllllllllllllllll ****
+          TOLAYER3: packet being corrupted
+**** At 122.983337 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 122.983337 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 122.983337 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet4 eeeeeeeeeeeeeeeeeee being lost
+**** At 122.983337 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 122.983337 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 122.983337 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 122.983337 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 124.247040,  type: 2, fromlayer3  entity: 1
+
+**** At 124.247040 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 127.259003,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 92 | Received checksum : 2
+[A_input] Checksum does not match. Received ACK2 is corrupt
+
+EVENT time: 130.943878,  type: 2, fromlayer3  entity: 1
+
+**** At 130.943878 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt7 Zhhhhhhhhhhhhhhhhhh ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 132.198212,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 132.198212 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 134.611938,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 92 | Received checksum : 2
+[A_input] Checksum does not match. Received ACK2 is corrupt
+
+EVENT time: 137.188629,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: mmmmmmmmmmmmmmmmmmm
+
+
+          **** Printing data in buffer **** 
+                lllllllllllllllllll
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet0 mmmmmmmmmmmmmmmmmmm being lost
+**** At 137.188629 in A_output() : Correct pkt received. pkt0 mmmmmmmmmmmmmmmmmmm ****
+**** At 137.188629 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet2 ccccccccccccccccccc being lost
+**** At 137.188629 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 137.188629 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet4 eeeeeeeeeeeeeeeeeee being lost
+**** At 137.188629 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 137.188629 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet6 ggggggggggggggggggg being lost
+**** At 137.188629 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 137.188629 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 139.018341,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: nnnnnnnnnnnnnnnnnnn
+
+
+          **** Printing data in buffer **** 
+                mmmmmmmmmmmmmmmmmmm
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet0 nnnnnnnnnnnnnnnnnnn being lost
+**** At 139.018341 in A_output() : Correct pkt received. pkt0 nnnnnnnnnnnnnnnnnnn ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 139.018341 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 139.018341 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 139.042923,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 92 | Received checksum : 2
+[A_input] Checksum does not match. Received ACK2 is corrupt
+
+EVENT time: 139.975601,  type: 2, fromlayer3  entity: 1
+
+**** At 139.975601 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 141.489700,  type: 2, fromlayer3  entity: 1
+
+**** At 141.489700 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt2 Zcccccccccccccccccc ****
+
+
+EVENT time: 142.587723,  type: 2, fromlayer3  entity: 1
+
+**** At 142.587723 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt3 Zdddddddddddddddddd ****
+
+
+EVENT time: 142.936554,  type: 0, timerinterrupt   entity: 0
+
+
+[A_timerinterrupt] Timer started for base 3
+[A_timerinterrupt] Resending pkt3 ddddddddddddddddddd 
+[A_timerinterrupt] Resending pkt4 eeeeeeeeeeeeeeeeeee 
+          TOLAYER3: packet4 eeeeeeeeeeeeeeeeeee being lost
+[A_timerinterrupt] Resending pkt5 fffffffffffffffffff 
+[A_timerinterrupt] Resending pkt6 ggggggggggggggggggg 
+[A_timerinterrupt] Resending pkt7 hhhhhhhhhhhhhhhhhhh 
+
+
+EVENT time: 144.332840,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 144.332840 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 144.737106,  type: 2, fromlayer3  entity: 1
+
+**** At 144.737106 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 146.320969,  type: 2, fromlayer3  entity: 1
+
+**** At 146.320969 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt5 Zffffffffffffffffff ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 148.828888,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ooooooooooooooooooo
+
+
+          **** Printing data in buffer **** 
+                nnnnnnnnnnnnnnnnnnn
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+**** At 148.828888 in A_output() : Correct pkt received. pkt0 ooooooooooooooooooo ****
+**** At 148.828888 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet2 ccccccccccccccccccc being lost
+**** At 148.828888 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+          TOLAYER3: packet3 ddddddddddddddddddd being lost
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 148.828888 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 148.828888 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 148.828888 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet being corrupted
+**** At 148.828888 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 148.828888 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 150.400208,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 150.400208 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 151.568100,  type: 2, fromlayer3  entity: 1
+
+**** At 151.568100 in B_input() :  Duplicate Packet received. Resending ACK2 for pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 152.302658,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 152.302658 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 155.027344,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ppppppppppppppppppp
+
+
+          **** Printing data in buffer **** 
+                ooooooooooooooooooo
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet0 ppppppppppppppppppp being lost
+**** At 155.027344 in A_output() : Correct pkt received. pkt0 ppppppppppppppppppp ****
+**** At 155.027344 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 155.027344 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 155.027344 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet4 eeeeeeeeeeeeeeeeeee being lost
+**** At 155.027344 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 155.027344 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet6 ggggggggggggggggggg being lost
+**** At 155.027344 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 155.027344 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 160.511841,  type: 2, fromlayer3  entity: 1
+
+**** At 160.511841 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt7 Zhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 161.738708,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: qqqqqqqqqqqqqqqqqqq
+
+
+          **** Printing data in buffer **** 
+                ppppppppppppppppppp
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 161.738708 in A_output() : Correct pkt received. pkt0 qqqqqqqqqqqqqqqqqqq ****
+**** At 161.738708 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 161.738708 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 161.738708 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 161.738708 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+          TOLAYER3: packet being corrupted
+**** At 161.738708 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 161.738708 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+**** At 161.738708 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 161.915451,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 161.915451 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 163.021576,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 163.021576 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 163.881241,  type: 2, fromlayer3  entity: 1
+
+**** At 163.881241 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK2 for pkt999999 jjjjjjjjjjjjjjjjjjj ****
+
+
+EVENT time: 167.062180,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 2 | Received checksum : 2
+**** At 167.062180 in A_input() : ACK2 received for pkt2:  ****
+
+EVENT time: 167.794006,  type: 2, fromlayer3  entity: 1
+
+**** At 167.794006 in B_input() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+[B_input] Sending ACK3 to A
+          TOLAYER3: packet being corrupted
+
+EVENT time: 167.936554,  type: 0, timerinterrupt   entity: 0
+
+
+[A_timerinterrupt] Timer started for base 3
+[A_timerinterrupt] Resending pkt3 ddddddddddddddddddd 
+          TOLAYER3: packet3 ddddddddddddddddddd being lost
+[A_timerinterrupt] Resending pkt4 eeeeeeeeeeeeeeeeeee 
+[A_timerinterrupt] Resending pkt5 fffffffffffffffffff 
+[A_timerinterrupt] Resending pkt6 ggggggggggggggggggg 
+[A_timerinterrupt] Resending pkt7 hhhhhhhhhhhhhhhhhhh 
+          TOLAYER3: packet7 hhhhhhhhhhhhhhhhhhh being lost
+
+
+EVENT time: 171.767807,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: rrrrrrrrrrrrrrrrrrr
+
+
+          **** Printing data in buffer **** 
+                qqqqqqqqqqqqqqqqqqq
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+**** At 171.767807 in A_output() : Correct pkt received. pkt0 rrrrrrrrrrrrrrrrrrr ****
+**** At 171.767807 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet2 ccccccccccccccccccc being lost
+**** At 171.767807 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 171.767807 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 171.767807 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 171.767807 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet being corrupted
+**** At 171.767807 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet7 hhhhhhhhhhhhhhhhhhh being lost
+**** At 171.767807 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 172.332443,  type: 2, fromlayer3  entity: 1
+
+**** At 172.332443 in B_input() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+[B_input] Sending ACK4 to A
+          TOLAYER3: packet0  being lost
+
+EVENT time: 173.260635,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 93 | Received checksum : 3
+[A_input] Checksum does not match. Received ACK3 is corrupt
+
+EVENT time: 178.020264,  type: 2, fromlayer3  entity: 1
+
+**** At 178.020264 in B_input() : Correct pkt received. pkt5 fffffffffffffffffff ****
+[B_input] Sending ACK5 to A
+
+EVENT time: 184.291946,  type: 2, fromlayer3  entity: 1
+
+**** At 184.291946 in B_input() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+[B_input] Sending ACK6 to A
+          TOLAYER3: packet0  being lost
+
+EVENT time: 186.130508,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: sssssssssssssssssss
+
+
+          **** Printing data in buffer **** 
+                rrrrrrrrrrrrrrrrrrr
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+**** At 186.130508 in A_output() : Correct pkt received. pkt0 sssssssssssssssssss ****
+**** At 186.130508 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+**** At 186.130508 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+[A_output] Timer started for base 3
+Warning: attempt to start a timer that is already started
+**** At 186.130508 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+**** At 186.130508 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 186.130508 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+**** At 186.130508 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet7 hhhhhhhhhhhhhhhhhhh being lost
+**** At 186.130508 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 187.436172,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 5 | Received checksum : 5
+**** At 187.436172 in A_input() : ACK5 received for pkt5:  ****
+Base : 6 
+nextseqnum_A : 8
+
+base_A is not equal to nextseqnum_A
+
+
+[A_input] Timer stopped for pkt5
+[A_input] Timer started for base 6
+
+
+
+EVENT time: 189.718140,  type: 1, fromlayer5  entity: 0
+
+          MAINLOOP: data given to student: ttttttttttttttttttt
+
+
+          **** Printing data in buffer **** 
+                sssssssssssssssssss
+                bbbbbbbbbbbbbbbbbbb
+                ccccccccccccccccccc
+                ddddddddddddddddddd
+                eeeeeeeeeeeeeeeeeee
+                fffffffffffffffffff
+                ggggggggggggggggggg
+                hhhhhhhhhhhhhhhhhhh
+            **********************************
+
+          TOLAYER3: packet being corrupted
+**** At 189.718140 in A_output() : Correct pkt received. pkt0 ttttttttttttttttttt ****
+**** At 189.718140 in A_output() : Correct pkt received. pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet being corrupted
+**** At 189.718140 in A_output() : Correct pkt received. pkt2 ccccccccccccccccccc ****
+**** At 189.718140 in A_output() : Correct pkt received. pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet4 eeeeeeeeeeeeeeeeeee being lost
+**** At 189.718140 in A_output() : Correct pkt received. pkt4 eeeeeeeeeeeeeeeeeee ****
+**** At 189.718140 in A_output() : Correct pkt received. pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet being corrupted
+[A_output] Timer started for base 6
+Warning: attempt to start a timer that is already started
+**** At 189.718140 in A_output() : Correct pkt received. pkt6 ggggggggggggggggggg ****
+          TOLAYER3: packet7 hhhhhhhhhhhhhhhhhhh being lost
+**** At 189.718140 in A_output() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+EVENT time: 189.973404,  type: 2, fromlayer3  entity: 1
+
+**** At 189.973404 in B_input() : Correct pkt received. pkt7 hhhhhhhhhhhhhhhhhhh ****
+[B_input] Sending ACK7 to A
+          TOLAYER3: packet being corrupted
+
+EVENT time: 196.741852,  type: 2, fromlayer3  entity: 1
+
+**** At 196.741852 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt0 Zkkkkkkkkkkkkkkkkkk ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 197.062515,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 200.460068,  type: 2, fromlayer3  entity: 1
+
+**** At 200.460068 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 205.331741,  type: 2, fromlayer3  entity: 1
+
+**** At 205.331741 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+
+
+EVENT time: 205.770172,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 151 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 209.837784,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 209.837784 in A_input() : ACK7 received for pkt7:  ****
+
+[A_input] Timer stopped for pkt7.
+
+
+
+EVENT time: 211.870972,  type: 2, fromlayer3  entity: 1
+
+**** At 211.870972 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 215.978714,  type: 2, fromlayer3  entity: 1
+
+**** At 215.978714 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 216.860901,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 216.860901 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 223.260162,  type: 2, fromlayer3  entity: 1
+
+**** At 223.260162 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt5 Zffffffffffffffffff ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 224.387558,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 224.387558 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 229.765549,  type: 2, fromlayer3  entity: 1
+
+**** At 229.765549 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 231.171173,  type: 2, fromlayer3  entity: 1
+
+**** At 231.171173 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 236.248672,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 236.248672 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 239.852859,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 239.852859 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 240.885315,  type: 2, fromlayer3  entity: 1
+
+**** At 240.885315 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt1 Zbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 243.900162,  type: 2, fromlayer3  entity: 1
+
+**** At 243.900162 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 249.633209,  type: 2, fromlayer3  entity: 1
+
+**** At 249.633209 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 253.417542,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 253.504547,  type: 2, fromlayer3  entity: 1
+
+**** At 253.504547 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt5 Zffffffffffffffffff ****
+
+
+EVENT time: 257.629517,  type: 2, fromlayer3  entity: 1
+
+**** At 257.629517 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 261.867493,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 261.867493 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 267.554962,  type: 2, fromlayer3  entity: 1
+
+**** At 267.554962 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 269.092468,  type: 2, fromlayer3  entity: 1
+
+**** At 269.092468 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 270.807739,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 270.807739 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 272.309204,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 144 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK999999 is corrupt
+
+EVENT time: 274.773773,  type: 2, fromlayer3  entity: 1
+
+**** At 274.773773 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 276.620972,  type: 2, fromlayer3  entity: 1
+
+**** At 276.620972 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt5 Zffffffffffffffffff ****
+
+
+EVENT time: 280.912689,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 280.912689 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 283.352234,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 283.352234 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 285.334473,  type: 2, fromlayer3  entity: 1
+
+**** At 285.334473 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 287.282379,  type: 2, fromlayer3  entity: 1
+
+**** At 287.282379 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 289.046265,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 289.046265 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 289.646912,  type: 2, fromlayer3  entity: 1
+
+**** At 289.646912 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+
+
+EVENT time: 291.223419,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 295.442444,  type: 2, fromlayer3  entity: 1
+
+**** At 295.442444 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 296.345093,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 296.345093 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 300.984131,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 300.984131 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 302.061340,  type: 2, fromlayer3  entity: 1
+
+**** At 302.061340 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 306.815277,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 309.217743,  type: 2, fromlayer3  entity: 1
+
+**** At 309.217743 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 313.394257,  type: 2, fromlayer3  entity: 1
+
+**** At 313.394257 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 316.430664,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 316.430664 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 316.904297,  type: 2, fromlayer3  entity: 1
+
+**** At 316.904297 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 322.647888,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 322.647888 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 323.567261,  type: 2, fromlayer3  entity: 1
+
+**** At 323.567261 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 324.993835,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 324.993835 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 325.609222,  type: 2, fromlayer3  entity: 1
+
+**** At 325.609222 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 328.475342,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 332.446716,  type: 2, fromlayer3  entity: 1
+
+**** At 332.446716 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 335.903107,  type: 2, fromlayer3  entity: 1
+
+**** At 335.903107 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 341.689056,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 341.689056 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 343.629608,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 343.629608 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 345.640015,  type: 2, fromlayer3  entity: 1
+
+**** At 345.640015 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt0 ooooooooooooooooooo ****
+
+
+EVENT time: 350.989960,  type: 2, fromlayer3  entity: 1
+
+**** At 350.989960 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 351.702209,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 351.702209 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 355.762604,  type: 2, fromlayer3  entity: 1
+
+**** At 355.762604 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 359.264771,  type: 2, fromlayer3  entity: 1
+
+**** At 359.264771 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 361.403473,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 361.403473 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 362.444336,  type: 2, fromlayer3  entity: 1
+
+**** At 362.444336 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt6 Zgggggggggggggggggg ****
+
+
+EVENT time: 366.935883,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 366.935883 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 370.416626,  type: 2, fromlayer3  entity: 1
+
+**** At 370.416626 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 371.121033,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 371.121033 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 376.290466,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 376.290466 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 378.855072,  type: 2, fromlayer3  entity: 1
+
+**** At 378.855072 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 383.282990,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 383.282990 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 384.748779,  type: 2, fromlayer3  entity: 1
+
+**** At 384.748779 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+
+
+EVENT time: 385.816040,  type: 2, fromlayer3  entity: 1
+
+**** At 385.816040 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 387.854614,  type: 2, fromlayer3  entity: 1
+
+**** At 387.854614 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt5 Zffffffffffffffffff ****
+
+
+EVENT time: 390.702087,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 390.702087 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 395.458588,  type: 2, fromlayer3  entity: 1
+
+**** At 395.458588 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 399.987305,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 399.987305 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 400.332855,  type: 2, fromlayer3  entity: 1
+
+**** At 400.332855 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt0 Zqqqqqqqqqqqqqqqqqq ****
+
+
+EVENT time: 406.284302,  type: 2, fromlayer3  entity: 1
+
+**** At 406.284302 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 406.832672,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 406.832672 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 412.415314,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 412.415314 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 413.695770,  type: 2, fromlayer3  entity: 1
+
+**** At 413.695770 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+
+
+EVENT time: 416.674377,  type: 2, fromlayer3  entity: 1
+
+**** At 416.674377 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 420.516602,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 422.139313,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 422.139313 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 423.801666,  type: 2, fromlayer3  entity: 1
+
+**** At 423.801666 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 428.294434,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 428.294434 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 432.145782,  type: 2, fromlayer3  entity: 1
+
+**** At 432.145782 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt5 Zffffffffffffffffff ****
+
+
+EVENT time: 437.616608,  type: 2, fromlayer3  entity: 1
+
+**** At 437.616608 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 437.634705,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 437.634705 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 440.691437,  type: 2, fromlayer3  entity: 1
+
+**** At 440.691437 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt7 hhhhhhhhhhhhhhhhhhh ****
+
+
+EVENT time: 442.144409,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 442.144409 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 443.646637,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 443.646637 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 449.834259,  type: 2, fromlayer3  entity: 1
+
+**** At 449.834259 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 451.567963,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 451.567963 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 456.388550,  type: 2, fromlayer3  entity: 1
+
+**** At 456.388550 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 458.774506,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 458.774506 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 462.826385,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 462.826385 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 464.921417,  type: 2, fromlayer3  entity: 1
+
+**** At 464.921417 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 466.584839,  type: 2, fromlayer3  entity: 1
+
+**** At 466.584839 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt0 rrrrrrrrrrrrrrrrrrr ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 469.887756,  type: 2, fromlayer3  entity: 1
+
+**** At 469.887756 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 471.460938,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 471.460938 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 476.418732,  type: 2, fromlayer3  entity: 1
+
+**** At 476.418732 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+
+
+EVENT time: 478.196747,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 478.196747 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 482.691254,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 482.691254 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 485.428284,  type: 2, fromlayer3  entity: 1
+
+**** At 485.428284 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 491.743774,  type: 2, fromlayer3  entity: 1
+
+**** At 491.743774 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 492.014435,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 493.495056,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 151 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 499.239502,  type: 2, fromlayer3  entity: 1
+
+**** At 499.239502 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt999999 ggggggggggggggggggg ****
+
+
+EVENT time: 499.991943,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 499.991943 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 501.918457,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 501.918457 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 508.702820,  type: 2, fromlayer3  entity: 1
+
+**** At 508.702820 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt0 sssssssssssssssssss ****
+
+
+EVENT time: 511.831696,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 511.831696 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 513.124939,  type: 2, fromlayer3  entity: 1
+
+**** At 513.124939 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 516.408020,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 516.408020 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 519.566162,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 519.566162 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 519.849976,  type: 2, fromlayer3  entity: 1
+
+**** At 519.849976 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt2 ccccccccccccccccccc ****
+
+
+EVENT time: 528.095459,  type: 2, fromlayer3  entity: 1
+
+**** At 528.095459 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet0  being lost
+
+
+EVENT time: 529.506409,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 529.506409 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 533.676270,  type: 2, fromlayer3  entity: 1
+
+**** At 533.676270 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt4 eeeeeeeeeeeeeeeeeee ****
+
+
+EVENT time: 536.213440,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 536.213440 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 543.631042,  type: 2, fromlayer3  entity: 1
+
+**** At 543.631042 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 545.491394,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 545.491394 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 551.511475,  type: 2, fromlayer3  entity: 1
+
+**** At 551.511475 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 554.107544,  type: 2, fromlayer3  entity: 1
+
+**** At 554.107544 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt0 ttttttttttttttttttt ****
+
+
+EVENT time: 556.029846,  type: 2, fromlayer3  entity: 1
+
+**** At 556.029846 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt1 bbbbbbbbbbbbbbbbbbb ****
+
+
+EVENT time: 559.566589,  type: 2, fromlayer3  entity: 1
+
+**** At 559.566589 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt999999 ccccccccccccccccccc ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 561.369202,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 561.369202 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 562.795227,  type: 2, fromlayer3  entity: 1
+
+**** At 562.795227 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt3 ddddddddddddddddddd ****
+          TOLAYER3: packet being corrupted
+
+
+EVENT time: 569.459839,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 569.459839 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 570.797485,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 570.797485 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 571.643677,  type: 2, fromlayer3  entity: 1
+
+**** At 571.643677 in B_input() :  Duplicate Packet received. Resending ACK7 for pkt5 fffffffffffffffffff ****
+
+
+EVENT time: 573.961060,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 575.046143,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 97 | Received checksum : 7
+[A_input] Checksum does not match. Received ACK7 is corrupt
+
+EVENT time: 578.301025,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 578.301025 in A_input() : ACK7 received for pkt7:  ****
+
+EVENT time: 578.737610,  type: 2, fromlayer3  entity: 1
+
+**** At 578.737610 in B_input() :  Checksum mismatch. Corrupt Packet received. Resending ACK7 for pkt6 ggggggggggggggggggg ****
+
+
+EVENT time: 587.591675,  type: 2, fromlayer3  entity: 0
+
+[A_input] Calculated Checksum : 7 | Received checksum : 7
+**** At 587.591675 in A_input() : ACK7 received for pkt7:  ****
+ Simulator terminated at time 587.591675
+ after sending 20 msgs from layer5
+
+A_ackReceived_count = 63
+A_corruptReceived_count = 21
+A_timeoutOccurred_count = 24
+B_correctlyReceived_count = 8
+B_corruptReceived_count = 26
+B_duplicateReceived_count = 67
+afsara@inspiron-5559:~/Desktop/network-offline4$ 
