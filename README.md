@@ -1,5 +1,7 @@
 # Networking-offline-4-Reliable_data_transfer
 
+directly go to working_code/
+
 rdt_gbn.c has gbn implementation without wrap around of seq number. so it isn't exactly gbn.
 
 rdt_gbn_wrap.c is also ideally wrong since the sliding window concept is not implemented and the window doesn't slide, rather stays fixed.
